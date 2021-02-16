@@ -2,7 +2,7 @@
 <html>
 <head>
    <meta charset="utf-8"/>
-   <title>IT 2320 - Lab 1</title>
+   <title>IT 2320 - Lab 2</title>
    <script>
      function sayHelloJS() { 
         document.getElementById("js").innerHTML = "Hello from JavaScript!"; 
@@ -10,7 +10,7 @@
    </script>
 </head>
 <body onload="sayHelloJS()">
-   <h2>Your Name - IT 2320 - Lab 1</h2>
+   <h2>Trevor Myer - IT 2320 - Lab 1</h2>
    <h3>Hello from HTML!</h3>
    <h3 id="js"></h3>
 </body>
