@@ -13,11 +13,8 @@
    <h2>Trevor Myer - IT 2320 - Lab 1</h2>
    <h3>Hello from HTML!</h3>
    <h3 id="js"></h3>
-</body>
-</html>
-
-
-startNumber = int(raw_input("Enter the start number here "))
+   
+   startNumber = int(raw_input("Enter the start number here "))
 endNumber = int(raw_input("Enter the end number here "))
 
 def fib(n):
@@ -32,3 +29,9 @@ var finbNum=0;
 while (fibNum<3) {
    // prompt - check - alert - rinse and repeat
 }
+
+</body>
+</html>
+
+
+
