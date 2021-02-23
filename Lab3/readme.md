@@ -30,10 +30,23 @@
 </head> 
 <body>
 	<main>
-	    <h2>Your Name - IT 2320 - Lab 3</h2>
+	    <h2>Trevor Myer - IT 2320 - Lab 3</h2>
 		<h3>Enter a Number</h3> 
 		<label for="myNum">My Number Is:</label>
 		<input type="text" id="myNum"><br>
+		
+		num = int(input("Enter a number: "))  
+factorial = 1  
+if num < 0:  
+   print("Sorry, factorial does not exist for negative numbers")  
+elif num == 0:  
+   print("The factorial of 0 is 1")  
+else:  
+   for i in range(1,num + 1):  
+       factorial = factorial*i  
+   print("The factorial of",num,"is",factorial)  
+		<output type= 1 * 2 * 3 * 4 * 5 * 6 * 7>
+		
 		<br/>
 		<!-- display the squre here -->
 		<label for="mySquare">My Number Squared:</label> 
