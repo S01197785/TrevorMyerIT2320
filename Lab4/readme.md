@@ -1,4 +1,3 @@
-
 <form id="form2" method="post" action="http://www.la.unm.edu/~beach/showform.php">
       <p>First Name: <input type="text" name="first" size="20"         maxlength="30" />
      </p>
@@ -16,6 +15,5 @@
       </p>
       <p><input type="submit" value="Submit Form" /></p>
 </form>
-
 
 
