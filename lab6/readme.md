@@ -67,9 +67,9 @@
    var step;
    var answerNum;
    $(document).ready(function(){
-      answerNum = 0;
-      num1 = 0;
-	  num2 = 0;
+      answerNum = 5 % 2 = 1;
+      num1 =  5 % 2 = 1;
+	  num2 = 5 % 2 = 1;
 	  cAction = "";
 	  step = 1;
 	  keyStr = "";
