@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<h2>Your Name - IT 2320 - Lab 8</h2>
+<h2>Trevor Myer - IT 2320 - Lab 8</h2>
 <form id="lab8Form" action="#" method="post">
 <table>
     <tr>
