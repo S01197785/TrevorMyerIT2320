@@ -14,8 +14,7 @@
 <form id="lab8Form" action="#" method="post">
 <table>
     <tr>
-        <td>Full Name </td><td><input type="text" id="fullname" ></td>
-	  System.out.println( changeCase.toUpperCase( ) );  
+        <td>Full Name </td><td> System.out.println( changeCase.toUpperCase(<input type="text" id="fullname") ) ></td>  
 	</tr>
 	 <tr class="graybackground">
         <td colspan="2"><center><strong>Shipping Address</strong></center></td>
