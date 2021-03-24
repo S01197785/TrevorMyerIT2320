@@ -155,9 +155,9 @@
         <td colspan="2"><center><strong>Comment (up to 250 characters)</strong></center></td>
 	</tr>
 	<tr>
-	    <td><strong><span id="msgArea">0 characters<br/>remaining</span></strong></td>
+	    <td><strong><span id="msgArea">0 characters<textarea id="textarea" maxlength="250"></textarea><br/>remaining</span></strong></td>
+		<span id="rchars">250</span> Character(s) Remaining
 		<td><textarea id="comment" maxlength="250" rows="5" cols="50"></textarea></td>
-		<td><td>
 		<tr>
 		   <td><input type="reset" id="reset" name="reset" value="Reset"></td>
            <td><input type="submit" id="submit" name="submit" value="Submit"></td>
