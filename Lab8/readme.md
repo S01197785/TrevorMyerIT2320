@@ -157,6 +157,7 @@
 	<tr>
 	    <td><strong><span id="msgArea">0 characters<br/>remaining</span></strong></td>
 		<td><textarea id="comment" maxlength="250" rows="5" cols="50"></textarea></td>
+		<td><td>
 		<tr>
 		   <td><input type="reset" id="reset" name="reset" value="Reset"></td>
            <td><input type="submit" id="submit" name="submit" value="Submit"></td>
