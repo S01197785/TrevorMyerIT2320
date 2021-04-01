@@ -1,2 +1,7 @@
-// Document : Lab3 // Created on: April 1st, 2021, 6: 43: 00 PM // Author: trevor myer // // Coded in NetBeans 2017. After initial setup, it made it easy to test and debug. // Except the built in debugger in VS does not do prompts. Everything else debugged nicely. //
-// Run cases are documented in the word document ReadMe.Docx // // entire web site is in the zip // // index.html and main.js is separated // //
+// Document : Lab3 
+// Created on: April 1st, 2021, 6: 43: 00 PM 
+// Author: trevor myer 
+// 
+//Coded in NetBeans because Visual Studio was begin difficult.   I could not get the debugger working. 
+//
+// Run cases are documented in the word document ReadMe.Docx 
