@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<style>
+   ul { display: none; }
+</style>
+<script>
+        "use strict";
+        var $ = function (id) { return document.getElementById(id); };
+        
+        window.onload = function () {
+            // set up change event for timerVal
+            document.getElementById("timerVal").onchange = timerValChange;
+
+        
+            // logic pulled from book - page 217 .. mostly ... 
+            var listNode = $("image_list");
+            var imageNode = $("image");
+            var links = listNode.getElementsByTagName("a");
+            var i, linkNode, image;
+            var imageCache = [];
+            for ( i = 0; i < links.length; i++ ) {
+                linkNode = links[i];
+                image = new Image();
+                image.src = linkNode.getAttribute("href");
+                imageCache[imageCache.length] = image;
+            }
+            
+            // Update the count down every 1 second
+            var x = setInterval(function() 
+            {
+                // get the timer value
+                var countDownTimer = document.getElementById("timerCount").innerHTML;
+                if (countDownTimer == 0) {
+                    // If the count down is finished, change picture
+                   var imageNumber = document.getElementById("myPicture").title;
+                   var newImageNumber = parseInt(imageNumber) + 1;
+                   document.getElementById("myPicture").src = imageCache[newImageNumber].src;               
+                   document.getElementById("myPicture").title = newImageNumber;
+                    
+                    // reset seconds to start value
+                    var timerval = document.getElementById("timerVal").value;
+                    document.getElementById("timerCount").innerHTML = timerval;
+                 } else
+                 {
+                    countDownTimer = countDownTimer - 1;
+                    document.getElementById("timerCount").innerHTML = countDownTimer;
+                 }
+            }, 1000);
+            
+        };
+        
+        function timerValChange() {
+          // set new count down
+         var timerval = document.getElementById("timerVal").value;
+         document.getElementById("timerCount").innerHTML = timerval;
+        }
+
+</script>
+</head>
+<body>
+	<h2>Trevor Myer - IT 2320 - Lab 5 - Slide Show</h2>
+<ul id="image_list">
+    <li><a href="images/adams.jpg" title="adams"></a></li>
+    <li><a href="images/jackson.jpg" title="jackson"></a></li>
+    <li><a href="images/jefferson.jpg" title="jefferson"></a></li>
+    <li><a href="images/madison.jpg" title="madison"></a></li>
+    <li><a href="images/washington.jpg" title="washington"></a></li>
+</ul>
+        
+	<p><center>
+	   Timer (seconds): <input type="text" id="timerVal" value="5"><br/><br/>
+	   <img id="myPicture" src="images/adams.jpg" title="1"><br/><br/>
+	   <h2 id="timerCount">5</h2>
+	</center> 
+        </p>
+
+</body>
+</html>
