@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+-->
+<html>
+    
+ <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script>
+        "use strict";
+        var $ = function (id) { return document.getElementById(id); };
+
+        window.onload = function () {
+            $("searchButton").onclick = getWeather;
+            // 
+            // disable text boxes
+            //$("zipCode").value = "44129";   // default so I did not have to type it 10000 times
+            $("city").disabled = true;
+            $("currCond").disabled = true;
+            $("temperature").disabled = true;
+            $("windSpeed").disabled = true;
+            $("humidity").disabled = true;
+            $("tempMin").disabled = true;
+            $("tempMax").disabled = true;
+        };
+                
+        function getWeather() {
+          var zip = $("zipCode").value;
+          var url = "http://api.openweathermap.org/data/2.5/weather"
+                 +"?zip=" + zip +",us"
+                 +"&appid=7ad6b4c60d201d86c470e32bb0844191"
+                 +"&units=imperial";
+          jQuery.ajax({ method: "GET", url: url, dataType: "json"
+             }).done(function (weatherResponse){
+                // here will be the code that takes the JSON returned in the structure weatherResponse and diplays it on the page.
+                // here is one example
+                //$('windSpeed').html(weatherResponse.wind.speed);
+                $("city").value = weatherResponse.name;
+                $("currCond").value = weatherResponse.weather[0].description;
+                $("temperature").value = parseInt(weatherResponse.main.temp);
+                $("windSpeed").value = parseInt(weatherResponse.wind.speed);
+                $("humidity").value = parseInt(weatherResponse.main.humidity);
+                $("tempMin").value = parseInt(weatherResponse.main.temp_min);
+                $("tempMax").value = parseInt(weatherResponse.main.temp_max);
+      
+                var iconID = weatherResponse.weather[0].icon;
+                $("myPicture").src = "http://openweathermap.org/img/wn/" + iconID +"@2x.png";
+              });    
+         };
+        
+    </script>
+<body>
+ 
+     <h2>Trevor Myer - IT 2320 - Lab 9 - Weather API</h2>
+
+     <label id="zipLabel" >Zip Code</label><input type="text" id="zipCode" name="zipCode" autofocus>
+
+     <input type='button' value='Search' id="searchButton" /> <br>
+    
+
+     
+<table>     
+    <tr><td><label id="cityLabel">City</label></td><td><input type="text" id="city" name="city"></td></tr>
+    <tr><td><label id="currCodLabel">Current Condition</label></td><td><input type="text" id="currCond" name="currCond"></td></tr>
+    <tr><td><label id="temperatureLabel">Temperature</label></td><td><input type="text" id="temperature" name="temperature"></td></tr>
+    <tr><td><label id="windSpeedLabel">Wind Speed</label></td><td><input type="text" id="windSpeed" name="windSpeed"></td></tr>
+    <tr><td><label id="humidityLabel">Humidity</label></td><td><input type="text" id="humidity" name="humidity"></td></tr>
+    <tr><td><label id="tempMinLabel">Min Temperature</label></td><td><input type="text" id="tempMin" name="tempMin"></td></tr>
+    <tr><td><label id="tempMaxLabel">Max Temperature</label></td><td><input type="text" id="tempMax" name="tempMax"></td></tr>
+</table>
+     <BR>     
+     <img id="myPicture" src="" title=""><br/><br/>
+        
+</body>
+</html>
