@@ -13,5 +13,74 @@
 //
 //
 
+code:
+
+<%-- 
+    Document   : Lab2FibonacciSeq
+    Created on : Mar 31, 2021, 5:49:59 PM
+    Author     : trevor myer
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<f:view>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>IT 2320 - Lab 2 - Trevor Myer - FibonacciSeq</title>
+   <pre>
+   <script>
+      "use strict";
+	  
+	  // set up an array and initialize the first two values
+	  var fibArray = [];
+	  fibArray[0] = 0;
+	  fibArray[1] = 1;
+	  
+	  // declare a variable for the size of the squence 
+	  var fibNum;
+	  
+	  // prompt user for how many 
+          fibNum = prompt("Enter the number of values:", "10");
+          if (fibNum === null || fibNum === ""  || fibNum < "3") 
+             {
+  	     document.write("Invalid input.");
+             } 
+          else 
+             {
+  	     document.write("You entered " + fibNum );
+	     // check that fibNum >= 3
+	  
+	     // write the values into the array
+	     // You start at 2 because the first two values are already there
+	     for (var i=2; i<fibNum; i++) {
+  	        fibArray[i] = fibArray[i-1] + fibArray[i-2];
+	     }
+	  
+	     // read from the array and print balues to screen
+	     // another for loop 
+	     for (var i=0; i<fibNum+2; i++) {
+  	        document.write(fibArray[i]);
+	     }
+	  
+	     // calculate golden ratio and display it
+	     //  last number / 2nd last number
+             document.write("Golden Ratio calculation for the last values is" + fibArray[fibNum] / fibArray[fibNum-1] );
+             
+             }
+   
+   </script>
+   </pre>
+</head>
+<body>
+   <h2>Trevor Myer - IT 2320 - Lab 2</h2>
+
+</body>
 
 
