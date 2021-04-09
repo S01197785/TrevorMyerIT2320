@@ -1,2 +1,67 @@
 
 Trevor Myer - Lab 7 - Walking Guy
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Trevor Myer - IT 2320</title>
+<style>
+   #myPicture{
+       display:none;
+       position:absolute;
+   }
+
+   .faceleft { transform:scale(-1,1); }
+
+   .faceright { transform:scale(1,1); }
+</style>
+
+ <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+ <script type="text/javascript">
+
+$(document).ready(function(){
+    
+    $("#startButton").click(function(){
+       // fad in 
+       $("#myPicture").fadeIn(1000);
+       // walk Right
+       //$("#myPicture").animate({left: "+=" + ($(window).width()-410)}, 3000);
+       //$("#myPicture").animate({left: "+=" + ($(window).width()-410)}, 3000, flipHim());
+       //$("#myPicture").animate({left: "+=" + ($(window).width()-410)}, 3000, flipHimRight());
+       $("#myPicture").animate({left: "+=" + ($(window).width()-410)}, 3000, function() { flipHimLeft() });
+       // walk Left
+       //$("#myPicture").addClass('faceleft');       
+       //
+       $("#myPicture").animate({left: "-=" + ($(window).width()-410)}, 3000);
+       //$("#myPicture").animate({left: "-=" + ($(window).width()-410)}, 3000, flipHimLeft());
+       //$("#myPicture").animate({left: "-=" + ($(window).width()-410)}, 3000, function() { flipHimRight() });
+       // fad OUT
+       $("#myPicture").fadeOut(1000, function() { flipHimRight() });
+    });
+     
+    function flipHimLeft() {     
+       $("#myPicture").removeClass('faceright');       
+       $("#myPicture").addClass('faceleft');       
+    }
+
+    function flipHimRight() {     
+       $("#myPicture").fadeOut(1000);
+       $("#myPicture").removeClass('faceleft');       
+       $("#myPicture").addClass('faceright');       
+    }
+
+        
+});
+
+</script>
+</head>
+
+<body>
+ 
+     <h2>Trevor Myer - IT 2320 - Lab 7 - Walking Guy</h2>
+     <input type='button' value='Start' id="startButton" /> <br>
+     <img id="myPicture" src="images/lab9-guy-walking.gif"  alt="lab9-guy-walking.gif"   >
+    
+</body>
+</html>
