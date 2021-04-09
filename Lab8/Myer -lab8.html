@@ -1,3 +1,222 @@
 
 Trevor Myer - Lab 8 - Forms Events
 
+<html>
+<head>
+ <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        "use strict";
+        
+        window.onload = function () {
+           //document.getElementById("fullName").value = "trevor myer"; 
+           //document.getElementById("shipAddress").value = "1234 Main Street"; 
+           //document.getElementById("shipCity").value = "cleveland"; 
+           //document.getElementById("shipState").value = "OH"; 
+           //document.getElementById("shipZip").value = "44129"; 
+           
+           document.getElementById("useShipAddress").onchange = CheckBoxChanged;
+           
+           //document.getElementById("userComment").onchange = CommentChanged;
+        };
+
+        $(document).ready(function(){
+           // code goes here              
+        });
+
+             function CheckBoxChanged() {
+                if(document.getElementById("useShipAddress").checked) {
+                   document.getElementById("billAddress").value = document.getElementById("shipAddress").value;
+                   document.getElementById("billCity").value = document.getElementById("shipCity").value;
+                   document.getElementById("billState").value = document.getElementById("shipState").value;
+                   document.getElementById("billZip").value = document.getElementById("shipZip").value;
+                   document.getElementById("billAddress").disabled = true;
+                   document.getElementById("billCity").disabled = true;
+                   document.getElementById("billState").disabled = true;
+                   document.getElementById("billZip").disabled = true;
+                } else {
+                   document.getElementById("billAddress").value = ""; 
+                   document.getElementById("billCity").value = ""; 
+                   document.getElementById("billState").value = "Select State"; 
+                   document.getElementById("billZip").value = ""; 
+                   document.getElementById("billAddress").disabled = false;
+                   document.getElementById("billCity").disabled = false;
+                   document.getElementById("billState").disabled = false;
+                   document.getElementById("billZip").disabled = false;
+                }
+              };
+
+             function CommentChanged() {
+                var x = 250 - document.getElementById("userComment").value.length
+                document.getElementById("msgArea").innerHTML = x + " characters remaining";
+              };
+
+              function NameChanged() {
+                document.getElementById("fullName").value = document.getElementById("fullName").value.toUpperCase();
+              };
+        
+  </script>
+  <style>
+   .graybackground {background-color:#DDDDDD;}
+   td {padding:10px; border: 1px solid #ddd;}
+   table {width:40%}
+  </style>
+</head>
+<body>
+<form id="lab8Form" action="#" method="post">
+
+<h2>Trevor Myer - IT 2320 - Lab 8 - Form Events</h2>
+
+<table>
+    <tr>
+         <td>Full Name </td><td><input type="text" id="fullName" onKeyUp="NameChanged();"></td>
+    </tr>
+    <tr class="graybackground">
+         <td colspan="2"><center><strong>Shipping Address</strong></center></td>
+    </tr>
+    <tr>
+	<td>Address </td><td><input type="text" id="shipAddress"></td>
+    </tr>
+    <tr>
+        <td>City </td><td><input type="text" id="shipCity"></td>
+    </tr>
+     <tr>
+	<td>State <select name="state" id="shipState">
+		  <option value="">Select State</option>
+		  <option value="AL">Alabama</option>
+		  <option value="AK">Alaska</option>
+		  <option value="AZ">Arizona</option>
+		  <option value="AR">Arkansas</option>
+		  <option value="CA">California</option>
+		  <option value="CO">Colorado</option>
+		  <option value="CT">Connecticut</option>
+		  <option value="DE">Delaware</option>
+		  <option value="DC">Dist of Columbia</option>
+		  <option value="FL">Florida</option>
+		  <option value="GA">Georgia</option>
+		  <option value="HI">Hawaii</option>
+		  <option value="ID">Idaho</option>
+		  <option value="IL">Illinois</option>
+		  <option value="IN">Indiana</option>
+		  <option value="IA">Iowa</option>
+		  <option value="KS">Kansas</option>
+		  <option value="KY">Kentucky</option>
+		  <option value="LA">Louisiana</option>
+		  <option value="ME">Maine</option>
+		  <option value="MD">Maryland</option>
+		  <option value="MA">Massachusetts</option>
+		  <option value="MI">Michigan</option>
+		  <option value="MN">Minnesota</option>
+		  <option value="MS">Mississippi</option>
+		  <option value="MO">Missouri</option>
+		  <option value="MT">Montana</option>
+		  <option value="NE">Nebraska</option>
+		  <option value="NV">Nevada</option>
+		  <option value="NH">New Hampshire</option>
+		  <option value="NJ">New Jersey</option>
+		  <option value="NM">New Mexico</option>
+		  <option value="NY">New York</option>
+		  <option value="NC">North Carolina</option>
+		  <option value="ND">North Dakota</option>
+		  <option value="OH">Ohio</option>
+		  <option value="OK">Oklahoma</option>
+		  <option value="OR">Oregon</option>
+		  <option value="PA">Pennsylvania</option>
+		  <option value="RI">Rhode Island</option>
+		  <option value="SC">South Carolina</option>
+		  <option value="SD">South Dakota</option>
+		  <option value="TN">Tennessee</option>
+		  <option value="TX">Texas</option>
+		  <option value="UT">Utah</option>
+		  <option value="VT">Vermont</option>
+		  <option value="VA">Virginia</option>
+		  <option value="WA">Washington</option>
+		  <option value="WV">West Virginia</option>
+		  <option value="WI">Wisconsin</option>
+		  <option value="WY">Wyoming</option>
+		  </select></td>
+	<td>ZIP Code <input type="text" id="shipZip"></td>
+    </tr>
+    <tr class="graybackground">
+        <td colspan="2"><center><strong>Billing Address</strong></center></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="checkbox" id="useShipAddress" value="Y" /> Use Shipping Address for Billing</td>
+    </tr>
+    <tr>
+	<td>Address </td><td><input type="text" id="billAddress"></td>
+    </tr>
+    <tr>
+        <td>City </td><td><input type="text" id="billCity"></td>
+    </tr>
+    <tr>
+        <td>State <select name="state" id="billState">
+		  <option value="">Select State</option>
+		  <option value="AL">Alabama</option>
+		  <option value="AK">Alaska</option>
+		  <option value="AZ">Arizona</option>
+		  <option value="AR">Arkansas</option>
+		  <option value="CA">California</option>
+		  <option value="CO">Colorado</option>
+		  <option value="CT">Connecticut</option>
+		  <option value="DE">Delaware</option>
+		  <option value="DC">Dist of Columbia</option>
+		  <option value="FL">Florida</option>
+		  <option value="GA">Georgia</option>
+		  <option value="HI">Hawaii</option>
+		  <option value="ID">Idaho</option>
+		  <option value="IL">Illinois</option>
+		  <option value="IN">Indiana</option>
+		  <option value="IA">Iowa</option>
+		  <option value="KS">Kansas</option>
+		  <option value="KY">Kentucky</option>
+		  <option value="LA">Louisiana</option>
+		  <option value="ME">Maine</option>
+		  <option value="MD">Maryland</option>
+		  <option value="MA">Massachusetts</option>
+		  <option value="MI">Michigan</option>
+		  <option value="MN">Minnesota</option>
+		  <option value="MS">Mississippi</option>
+		  <option value="MO">Missouri</option>
+		  <option value="MT">Montana</option>
+		  <option value="NE">Nebraska</option>
+		  <option value="NV">Nevada</option>
+		  <option value="NH">New Hampshire</option>
+		  <option value="NJ">New Jersey</option>
+		  <option value="NM">New Mexico</option>
+		  <option value="NY">New York</option>
+		  <option value="NC">North Carolina</option>
+		  <option value="ND">North Dakota</option>
+		  <option value="OH">Ohio</option>
+		  <option value="OK">Oklahoma</option>
+		  <option value="OR">Oregon</option>
+		  <option value="PA">Pennsylvania</option>
+		  <option value="RI">Rhode Island</option>
+		  <option value="SC">South Carolina</option>
+		  <option value="SD">South Dakota</option>
+		  <option value="TN">Tennessee</option>
+		  <option value="TX">Texas</option>
+		  <option value="UT">Utah</option>
+		  <option value="VT">Vermont</option>
+		  <option value="VA">Virginia</option>
+		  <option value="WA">Washington</option>
+		  <option value="WV">West Virginia</option>
+		  <option value="WI">Wisconsin</option>
+		  <option value="WY">Wyoming</option>
+		  </select></td>
+	<td>ZIP Code <input type="text" id="billZip"></td>
+    </tr>
+    <tr class="graybackground">
+        <td colspan="2"><center><strong>Comment (up to 250 characters)</strong></center></td>
+    </tr>
+    <tr>
+        <td><strong><span id="msgArea">250 characters<br/>remaining</span></strong></td>
+	<td><textarea id="userComment" maxlength="250" rows="5" cols="50" onKeyUp="CommentChanged();"></textarea></td>
+    <tr>
+        <td><input type="reset" id="reset" name="reset" value="Reset"></td>
+        <td><input type="submit" id="submit" name="submit" value="Submit"></td>
+    </tr>
+</table>
+</body>
+</form>
+</html>
