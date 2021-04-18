@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
 
+    //var $ = function (id) { return document.getElementById(id); };
+
+    window.onload = function () {
+        document.getElementById("btnEntered").onclick = addValueToArray;
+        document.getElementById("btnSearch").onclick = searchArray;
+        document.getElementById("btnSort").onclick = sortArray;
+        document.getElementById("btnReverse").onclick = reverseSortArray;
+
+        var myArray = [];
+
+        
+        function addValueToArray() {
+            // add value to array
+            myArray.push(document.getElementById("dataEntered").value);
+            document.getElementById("dataEntered").value = "";
+            displayArray();
+            }
+
+        function searchArray() {
+            // search array
+            //    Hint: Use the array method findIndex() to implement a search function. 
+            //          Use the string method indexOf() to search within each element.
+            var output = -1;
+            //output = myArray.indexOf(document.getElementById("search").value);
+            for (var i in myArray) {
+                if (myArray[i].indexOf(document.getElementById("search").value) != -1) {
+                    output = i;
+                }
+            }
+            if (output == -1) {
+               results.innerHTML = "search string not found";
+            } else {
+               results.innerHTML = "search string found in element #" + output + "<br><br>";
+           }
+        }
+
+        function sortArray() {
+            // sort array
+            myArray.sort();
+            displayArray();
+        }
+
+        function reverseSortArray() {
+            // reverse sort array
+            myArray.reverse();
+            displayArray();
+        }
+
+        function displayArray() {
+            // display the values of array in span tag
+            var output = "";
+            for (var i in myArray) {
+                output += "   myArray[" + i + "] " + myArray[i] + " <br>"
+            }
+            results.innerHTML = output;
+        }
+        
+        
+        
+        }
+       
+</script>
+</head>
+<body>
+<h2>Trevor Myer   Lab 11 Array Techniques</h2>
+Enter a string: <input type="text" id="dataEntered">
+<button type="button" id="btnEntered">Submit</button>
+<br /><br />
+Search for this: <input type="text" id="search">
+<button type=button" id="btnSearch">Search</button>
+<br /><br />
+<button type="button" id="btnSort">Sort the Array</button> <button type="button" id="btnReverse">Reverse the Array</button> 
+<br /><br />
+<strong>My Array Output</strong><br/>
+<span id="results"> *** </span>
+</body></html>
