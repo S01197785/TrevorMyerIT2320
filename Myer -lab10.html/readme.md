@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
 
+
+    window.onload = function () {
+        document.getElementById("btnGCD").onclick = calcGCD;
+        document.getElementById("btnGCD2").onclick = calcGCD2 ;
+        document.getElementById("btnPrime").onclick = calcPrime;
+
+        function calcGCD() {
+            // calc Greatest Common Denominator
+            var num1 = document.getElementById("intNumber1").value;
+            var num2 = document.getElementById("intNumber2").value;
+            var remainder1;
+            var remainder2;
+            var answer;
+            
+            for(i = 1; i <= Math.min(num1,num2); i++) { 
+               remainder1 = num1 % i;
+               remainder2 = num2 % i;
+               
+               if (remainder1 == 0 && remainder2 == 0) {
+                  answer = i; 
+               }
+            }           
+            results.innerHTML = "the Greatest Common Denominator of "+ num1 +" and "+ num2 +" is " + answer + "<br><br>";
+         };
+
+
+        function calcGCD2() {
+            // calc Greatest Common Denominator - Euclid's Algorithm
+            var num1 = document.getElementById("intNumber1").value;
+            var num2 = document.getElementById("intNumber2").value;
+            var BigNum = Math.max(num1, num2);
+            var LittleNum = Math.min(num1, num2);
+            var Remainder;
+            var answer;
+            
+            Remainder = BigNum % LittleNum;
+            while (Remainder != 0) {
+               answer = Remainder;
+               Remainder = BigNum % Remainder;
+            }
+            results.innerHTML = "the Greatest Common Denominator of "+ num1 +" and "+ num2 +" is " + answer + "<br><br>";
+         };
+
+
+        function calcPrime() {
+            var num = document.getElementById("intNumberPrime").value;
+            var isPrime = true;
+            var output = "";
+            var count = 3;
+            var square = 0;
+            
+            output = "[1] 1<br>";
+            output = output + "[2] 2<br>";
+            
+            for(i = 3; i <= num; i=i+2) { 
+              isPrime = checkPrime(i);
+              if (isPrime) {
+                 output = output + "[" + count + "] " + i + "<br>";
+                 count++;
+             };
+           };  // outter loop
+           results.innerHTML = "the Prime Numbers fount in "+ num +" are <br><br>" + output;
+         };
+         
+         function checkPrime(num) {
+            if(num < 2) return false;
+            for (var i = 2; i < num; i++) {
+              if(num%i==0)
+                return false;
+            }
+          return true;
+         };        
+         
+    };
+    
+</script>
+
+</head>
+<body>
+<h2>Trevor Myer   Lab 12 Greatest Common Denominator GCD and Prime Numbers</h2>
+
+<h2>Greatest Common Denominator</h2>
+Enter First Number : <input type="text" id="intNumber1">
+Enter Second Number: <input type="text" id="intNumber2">
+<button type="button" id="btnGCD">Greatest Common Denominator</button>
+<button type="button" id="btnGCD2">GCD - Euclid's Algorithm</button>
+<br /><br />
+<h2>Prime Numbers</h2>
+Enter Number : <input type="text" id="intNumberPrime">
+<button type="button" id="btnPrime">Calculate the Prime</button> 
+<br /><br />
+<strong>My Array Output</strong><br/>
+<span id="results"> *** </span>
+</body></html>
